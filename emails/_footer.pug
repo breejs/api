@@ -1,0 +1,12 @@
+footer.py-3.mt-3
+  .container
+    .row
+      .col-12.text-center
+        a(href=config.urls.web)
+          img(src=manifest('img/apple-touch-icon.png'), width=90, height=90, alt='').d-inline-block.align-middle
+        ul.m-0.p-0.text-white.py-3
+          li.px-1.d-inline: small: a(href=`${config.urls.web}/support`).text-white= t('Support')
+          li.px-1.d-inline: small: a(href=`${config.urls.web}/about`).text-white= t('About')
+          li.px-1.d-inline: small: a(href=`${config.urls.web}/privacy`).text-white= t('Privacy')
+          li.px-1.d-inline: small: a(href=`${config.urls.web}/terms`).text-white= t('Terms')
+        p: small.text-white!= `&copy; ${config.appName}`
