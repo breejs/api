@@ -85,6 +85,7 @@
     "jquery-placeholder": "^2.3.1",
     "jquery.pointer-events-polyfill": "^0.2.4",
     "koa-ctx-paginate": "^0.0.6",
+    "koa-jwt": "^4.0.1",
     "koa-views-render": "^0.0.1",
     "lodash": "^4.17.20",
     "mandarin": "^4.2.0",
@@ -281,7 +282,9 @@
     "rules": {
       "ava/assertion-arguments": "off",
       "unicorn/prevent-abbreviations": "off",
-      "unicorn/no-fn-reference-in-iterator": "off"
+      "unicorn/no-fn-reference-in-iterator": "off",
+      "import/extensions": "off",
+      "capitalized-comments": "off"
     }
   }
 }

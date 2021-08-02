@@ -149,6 +149,11 @@ const config = {
   changeEmailTokenTimeoutMs: ms(env.CHANGE_EMAIL_TOKEN_TIMEOUT_MS),
   changeEmailLimitMs: ms(env.CHANGE_EMAIL_LIMIT_MS),
 
+  // jwt options
+  jwt: {
+    secret: env.JWT_SECRET
+  },
+
   // @ladjs/passport configuration (see defaults in package)
   // <https://github.com/ladjs/passport>
   passport: {
