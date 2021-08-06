@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const request = require('supertest');
 const { factory, MongooseAdapter } = require('factory-girl');
 const getPort = require('get-port');
+const path = require('path');
 
 factory.setAdapter(new MongooseAdapter());
 
@@ -33,9 +34,16 @@ exports.setupWebServer = async (t) => {
 
 exports.setupApiServer = async (t) => {
   // Must require here in order to load changes made during setup
-  const { app } = require('../api');
+  const Bree = require('bree');
+  const { plugin } = require('../');
+
   const port = await getPort();
-  t.context.api = request.agent(app.listen(port));
+
+  Bree.extend(plugin, { port });
+
+  const bree = new Bree(baseConfig);
+
+  t.context.api = request.agent(bree.api.server);
 };
 
 // Make sure to load the web server first using setupWebServer
@@ -77,3 +85,16 @@ exports.defineUserFactory = async () => {
     return user;
   });
 };
+
+const root = path.join(__dirname, 'jobs');
+exports.root = root;
+
+const baseConfig = {
+  root,
+  timeout: 0,
+  interval: 0,
+  hasSeconds: false,
+  defaultExtension: 'js',
+  jobs: ['basic']
+};
+exports.baseConfig = baseConfig;

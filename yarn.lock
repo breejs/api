@@ -3262,7 +3262,7 @@ braces@^3.0.1, braces@~3.0.2:
   dependencies:
     fill-range "^7.0.1"
 
-bree@^6.0.0:
+bree@^6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/bree/-/bree-6.2.1.tgz#a8874d8d3e4fa081ada17c5c62a55cf30a1e81e9"
   integrity sha512-apgOBJp/4onxroljplYKMUP1gxxUKhoftSh63h037avAuQLM7vrtJuyB8TYE9+dzduWkjb2CCKwfOkqEpMFdAg==

@@ -1,5 +1,5 @@
 async function get(ctx) {
-  ctx.body = 'it worked';
+  ctx.body = { breeExists: ctx.bree };
 }
 
 module.exports = { get };
