@@ -19,4 +19,6 @@ router.put('/account', policies.ensureApiToken, api.v1.users.update);
 
 router.get('/config', api.v1.config.get);
 
+router.get('/jobs', api.v1.jobs.get);
+
 module.exports = router;
