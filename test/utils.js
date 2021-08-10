@@ -44,6 +44,7 @@ exports.setupApiServer = async (t) => {
   const bree = new Bree(baseConfig);
 
   t.context.api = request.agent(bree.api.server);
+  t.context.bree = bree;
 };
 
 // Make sure to load the web server first using setupWebServer
