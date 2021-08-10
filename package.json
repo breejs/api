@@ -4,15 +4,12 @@
   "version": "0.0.0",
   "author": "Nick Baugh <niftylettuce@gmail.com> (https://niftylettuce.com)",
   "ava": {
-    "verbose": true,
-    "failFast": true,
     "files": [
       "test/*.js",
       "test/**/*.js",
-      "test/**/**/*.js",
+      "!test/jobs",
       "!test/utils.js"
-    ],
-    "timeout": "30s"
+    ]
   },
   "bugs": {
     "url": "https://github.com/breejs/api/issues",
@@ -147,6 +144,7 @@
     "bundle-collapser": "^1.4.0",
     "codecov": "^3.8.1",
     "cssnano": "^4.1.10",
+    "delay": "^5.0.0",
     "eslint": "^7.19.0",
     "eslint-config-xo-lass": "^1.0.5",
     "eslint-formatter-pretty": "^4.0.0",
@@ -288,13 +286,5 @@
       "capitalized-comments": "off",
       "unicorn/catch-error-name": "off"
     }
-  },
-  "ava": {
-    "files": [
-      "test/*.js",
-      "test/**/*.js",
-      "!test/jobs",
-      "!test/utils.js"
-    ]
   }
 }

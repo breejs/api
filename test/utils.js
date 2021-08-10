@@ -32,7 +32,7 @@ exports.setupWebServer = async (t) => {
   t.context.web = request.agent(app.listen(port));
 };
 
-exports.setupApiServer = async (t) => {
+exports.setupApiServer = async (t, config = {}) => {
   // Must require here in order to load changes made during setup
   const Bree = require('bree');
   const { plugin } = require('../');
@@ -41,7 +41,7 @@ exports.setupApiServer = async (t) => {
 
   Bree.extend(plugin, { port });
 
-  const bree = new Bree(baseConfig);
+  const bree = new Bree({ ...baseConfig, ...config });
 
   t.context.api = request.agent(bree.api.server);
   t.context.bree = bree;
