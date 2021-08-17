@@ -103,3 +103,25 @@ test('successfully auto start job', async (t) => {
   // ensure job hasn't been started
   t.truthy(bree.workers['auto-start']);
 });
+
+test('successfully duplicate job', async (t) => {
+  const { bree, api } = t.context;
+
+  const jobs = {
+    name: 'orig(1)',
+    path: path.join(utils.root, 'long.js')
+  };
+
+  await api.post(rootUrl).send({ jobs });
+
+  const res = await api
+    .post(rootUrl)
+    .send({ copy: true, jobs: { name: 'orig(1)' } });
+
+  t.is(res.status, 200);
+
+  t.log(res);
+  t.truthy(bree.config.jobs.find((j) => j.name === 'orig(2)'));
+
+  t.falsy(bree.workers['orig(2)']);
+});

@@ -25,16 +25,42 @@ async function add(ctx) {
   const { bree } = ctx;
   const { body } = ctx.request;
 
-  // initial job length for return
-  const origLength = bree.config.jobs.length;
+  if (body.copy) {
+    if (!_.isArray(body.jobs)) body.jobs = [body.jobs];
+    console.log(body);
+
+    const newJobs = [];
+
+    for (const job of body.jobs) {
+      const origJob = bree.config.jobs.find((j) => j.name === job.name);
+
+      if (!origJob)
+        return ctx.throw(Boom.badData('Name does not exist in jobs'));
+
+      const newJob = _.clone(origJob);
+      newJob.name = origJob.name + '(1)';
+
+      if (origJob.name.endsWith(')')) {
+        newJob.name = origJob.name.replace(
+          /(^.*)(\((\d+)\))(?=$)/i,
+          (_match, subName, _p2, num) =>
+            `${subName}(${Number.parseInt(num, 10) + 1})`
+        );
+      }
+
+      newJobs.push(newJob);
+    }
+
+    body.jobs = newJobs;
+  }
+
+  let jobs;
 
   try {
-    bree.add(body.jobs);
+    jobs = bree.add(body.jobs);
   } catch (err) {
     return ctx.throw(Boom.badData(err));
   }
-
-  const jobs = bree.config.jobs.slice(origLength - 1);
 
   if (body.start) {
     for (const job of jobs) {
