@@ -3,9 +3,9 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const delay = require('delay');
 
-const config = require('../../../config');
+const config = require('../../../../config');
 
-const utils = require('../../utils');
+const utils = require('../../../utils');
 
 const rootUrl = '/v1/jobs';
 
@@ -36,7 +36,7 @@ test.before(async (t) => {
   t.context.bree.start();
 });
 
-test('GET > successfully', async (t) => {
+test('successfully', async (t) => {
   const { api, bree } = t.context;
 
   await delay(200);
@@ -55,7 +55,7 @@ test('GET > successfully', async (t) => {
   );
 });
 
-test('GET ?name > successfully', async (t) => {
+test('successfully filter by name', async (t) => {
   const { api, bree } = t.context;
 
   const res = await api.get(`${rootUrl}?name=done`);
@@ -68,7 +68,7 @@ test('GET ?name > successfully', async (t) => {
   );
 });
 
-test('GET ?status > successfully', async (t) => {
+test('successfully filter by status', async (t) => {
   const { api, bree } = t.context;
 
   await delay(200);

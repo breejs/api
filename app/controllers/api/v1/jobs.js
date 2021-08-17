@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const Boom = require('@hapi/boom');
 
 async function get(ctx) {
   const { bree } = ctx;
@@ -20,4 +21,20 @@ async function get(ctx) {
   ctx.body = body;
 }
 
-module.exports = { get };
+async function add(ctx) {
+  const { bree } = ctx;
+  const { body } = ctx.request;
+
+  // initial job length for return
+  const origLength = bree.config.jobs.length;
+
+  try {
+    bree.add(body.jobs);
+  } catch (err) {
+    return ctx.throw(Boom.badData(err));
+  }
+
+  ctx.body = { jobs: bree.config.jobs.slice(origLength - 1) };
+}
+
+module.exports = { get, add };
