@@ -34,7 +34,15 @@ async function add(ctx) {
     return ctx.throw(Boom.badData(err));
   }
 
-  ctx.body = { jobs: bree.config.jobs.slice(origLength - 1) };
+  const jobs = bree.config.jobs.slice(origLength - 1);
+
+  if (body.start) {
+    for (const job of jobs) {
+      bree.start(job.name);
+    }
+  }
+
+  ctx.body = { jobs };
 }
 
 module.exports = { get, add };

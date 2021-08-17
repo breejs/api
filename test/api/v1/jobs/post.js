@@ -83,3 +83,23 @@ test('fails if data is bad', async (t) => {
 
   t.is(res.status, 422);
 });
+
+test('successfully auto start job', async (t) => {
+  const { bree, api } = t.context;
+
+  const jobs = {
+    name: 'auto-start',
+    path: path.join(utils.root, 'long.js')
+  };
+
+  const res = await api.post(rootUrl).send({
+    jobs,
+    start: true
+  });
+
+  t.is(res.status, 200);
+
+  t.truthy(bree.config.jobs.find((j) => j.name === 'auto-start'));
+  // ensure job hasn't been started
+  t.truthy(bree.workers['auto-start']);
+});
