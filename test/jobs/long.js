@@ -2,6 +2,7 @@ const { parentPort } = require('worker_threads');
 
 setTimeout(() => {
   console.log('hello');
+  process.exit(0);
 }, 10000);
 
 if (parentPort) {

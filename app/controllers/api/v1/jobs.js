@@ -27,7 +27,6 @@ async function add(ctx) {
 
   if (body.copy) {
     if (!_.isArray(body.jobs)) body.jobs = [body.jobs];
-    console.log(body);
 
     const newJobs = [];
 

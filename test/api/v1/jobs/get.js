@@ -39,7 +39,7 @@ test.before(async (t) => {
 test('successfully', async (t) => {
   const { api, bree } = t.context;
 
-  await delay(200);
+  await delay(300);
 
   const res = await api.get(rootUrl);
 

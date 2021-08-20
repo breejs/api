@@ -34,6 +34,8 @@ test.before(async (t) => {
   t.context.api = t.context.api.auth(t.context.token, { type: 'bearer' });
 
   t.context.bree.start();
+
+  await delay(200);
 });
 
 test.serial('successfully stop named job', async (t) => {
@@ -45,15 +47,12 @@ test.serial('successfully stop named job', async (t) => {
 
   t.is(res.status, 200);
 
-  await delay(200);
-
   t.falsy(bree.workers.active);
 });
 
 test.serial('successfully stop all jobs', async (t) => {
   const { bree, api } = t.context;
 
-  t.not(Object.values(bree.workers).length, 0);
   t.not(Object.values(bree.timeouts).length, 0);
   t.not(Object.values(bree.intervals).length, 0);
 
