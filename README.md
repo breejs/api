@@ -1,4 +1,4 @@
-# api
+# @breejs/api
 
 [![build status](https://img.shields.io/travis/com/breejs/api.svg)](https://travis-ci.org/breejs/api)
 [![code coverage](https://img.shields.io/codecov/c/github/breejs/api.svg)](https://codecov.io/gh/breejs/api)
