@@ -25,4 +25,12 @@ async function stop(ctx) {
   ctx.body = {};
 }
 
-module.exports = { checkJobName, start, stop };
+async function run(ctx) {
+  const { jobName } = ctx.params;
+
+  ctx.bree.run(jobName);
+
+  ctx.body = {};
+}
+
+module.exports = { checkJobName, start, stop, run };
