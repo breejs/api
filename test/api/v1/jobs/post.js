@@ -1,7 +1,6 @@
 const test = require('ava');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-const delay = require('delay');
 
 const config = require('../../../../config');
 
@@ -120,7 +119,6 @@ test('successfully duplicate job', async (t) => {
 
   t.is(res.status, 200);
 
-  t.log(res);
   t.truthy(bree.config.jobs.find((j) => j.name === 'orig(2)'));
 
   t.falsy(bree.workers['orig(2)']);
