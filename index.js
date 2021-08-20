@@ -1,5 +1,4 @@
 const api = require('./api');
-const proxy = require('./proxy');
 
 const config = require('./config');
 
@@ -27,6 +26,5 @@ function plugin(opts, Bree) {
 
 module.exports = {
   api,
-  proxy,
   plugin
 };

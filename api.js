@@ -13,7 +13,6 @@ const api = new API(apiConfig);
 if (!module.parent) {
   const graceful = new Graceful({
     servers: [api],
-    redisClients: [api.client],
     logger
   });
   graceful.listen();
