@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@breejs/api",
   "description": "An API for Bree.",
   "version": "0.0.0",
   "author": "shadowgate15 <taylorschley@me.com> (https://github.com/shadowgate15)",
