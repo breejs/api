@@ -4,7 +4,7 @@ async function checkJobName(ctx, next) {
   const { jobName } = ctx.params;
 
   if (jobName && !ctx.bree.config.jobs.some((j) => j.name === jobName))
-    return Boom.badData('Job name does not exist');
+    return ctx.throw(Boom.badData('Job name does not exist'));
 
   return next();
 }
@@ -17,4 +17,12 @@ async function start(ctx) {
   ctx.body = {};
 }
 
-module.exports = { checkJobName, start };
+async function stop(ctx) {
+  const { jobName } = ctx.params;
+
+  await ctx.bree.stop(jobName);
+
+  ctx.body = {};
+}
+
+module.exports = { checkJobName, start, stop };

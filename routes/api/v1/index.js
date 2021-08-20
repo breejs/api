@@ -21,4 +21,7 @@ router.use(api.v1.control.checkJobName);
 router.post('/start', api.v1.control.start);
 router.post('/start/:jobName', api.v1.control.start);
 
+router.post('/stop', api.v1.control.stop);
+router.post('/stop/:jobName', api.v1.control.stop);
+
 module.exports = router;
