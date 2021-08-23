@@ -20,6 +20,7 @@ const config = {
   appName: env.APP_NAME,
   appColor: env.APP_COLOR,
   twitter: env.TWITTER,
+  port: 4000,
 
   // build directory
   buildBase: 'build',
