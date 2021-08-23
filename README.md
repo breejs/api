@@ -39,9 +39,10 @@ The API will start automatically when the Bree constructor is called.
 
 ## Options
 
-| Option |  Type  | Description                      |
-|:------:|:------:|----------------------------------|
-|  port  | Number | The port the API will listen on. |
+| Option |  Type  | Description                                                                                  |
+|:------:|:------:|----------------------------------------------------------------------------------------------|
+|  port  | Number | The port the API will listen on.                                                             |
+|   jwt  | Object | Configurations for JWT. Only option is `secret` which will be the secret used to verify JWT. |
 
 ## API
 

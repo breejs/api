@@ -3,16 +3,22 @@ const api = require('./api');
 const apiConfig = require('./config/api');
 
 const config = require('./config');
+const jwt = require('koa-jwt');
 
 function plugin(opts, Bree) {
   opts = {
     port: config.port,
+    jwt: config.jwt,
     ...opts
   };
 
   const api = new API({
     ...apiConfig,
-    port: opts.port
+    port: opts.port,
+    jwt: opts.jwt,
+    hookBeforeRoutes: (app) => {
+      app.use(jwt(opts.jwt));
+    }
   });
 
   const oldInit = Bree.prototype.init;
