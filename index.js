@@ -1,4 +1,6 @@
+const API = require('@ladjs/api');
 const api = require('./api');
+const apiConfig = require('./config/api');
 
 const config = require('./config');
 
@@ -7,6 +9,11 @@ function plugin(opts, Bree) {
     port: config.port,
     ...opts
   };
+
+  const api = new API({
+    ...apiConfig,
+    port: opts.port
+  });
 
   const oldInit = Bree.prototype.init;
 

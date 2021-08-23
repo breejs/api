@@ -2,23 +2,21 @@ const test = require('ava');
 
 const { baseConfig } = require('../utils');
 
-test.beforeEach((t) => {
+test.before((t) => {
   t.context.Bree = require('bree');
   t.context.plugin = require('../..').plugin;
+
+  t.context.Bree.extend(t.context.plugin);
 });
 
 test('api does not exist on bree constructor', (t) => {
-  const { Bree, plugin } = t.context;
-
-  Bree.extend(plugin);
+  const { Bree } = t.context;
 
   t.is(typeof Bree.api, 'undefined');
 });
 
 test('api does exist on bree instance', (t) => {
-  const { Bree, plugin } = t.context;
-
-  Bree.extend(plugin);
+  const { Bree } = t.context;
 
   const bree = new Bree(baseConfig);
 
@@ -27,4 +25,7 @@ test('api does exist on bree instance', (t) => {
   t.is(typeof bree.start, 'function');
   t.log(bree.api);
   t.is(typeof bree.api, 'object');
+
+  // port is set correctly by default
+  t.is(bree.api.config.port, 4000);
 });
