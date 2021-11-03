@@ -1,7 +1,7 @@
 {
   "name": "@breejs/api",
   "description": "An API for Bree.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "shadowgate15 <taylorschley@me.com> (https://github.com/shadowgate15)",
   "ava": {
     "files": [
