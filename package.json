@@ -108,7 +108,9 @@
     "bracketSpacing": true,
     "trailingComma": "none"
   },
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "remarkConfig": {
     "plugins": [
       "preset-github"
