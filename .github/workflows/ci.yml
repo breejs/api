@@ -29,11 +29,16 @@ jobs:
       - name: Install yarn
         run: npm install -g yarn
 
+      - name: Setup redis
+        uses: zhulik/redis-action@1.1.0
+
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
       - name: Run tests
         run: yarn test-coverage
+        env:
+          API_HOST: 0.0.0.0
 
       - name: Uninstall yarn
         if: always()
