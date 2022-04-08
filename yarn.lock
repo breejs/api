@@ -494,12 +494,12 @@
   resolved "https://registry.yarnpkg.com/@ladjs/format-util/-/format-util-1.0.4.tgz#dd16ecee7b9d1deb56e1a4968dc5e9ac54499df3"
   integrity sha512-hZere0rUga8kTzSTFbHREXpD9E/jwi94+B5RyLAmMIzl/w/EK1z7rFEnMHzPkU4AZkL42JWSsGXoV8LXMihybg==
 
-"@ladjs/graceful@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@ladjs/graceful/-/graceful-1.0.5.tgz#6e6495edbbd00e6b63a1aca321bf6aecb7271a42"
-  integrity sha512-9PGgrRkAi2zCRfYbeZGXAerBjcDxH0KgtidnPtyFSOC7fp0eHWN7TzdWlYpBAamzIOG10Xumxe5Xq3BxhP7Jqw==
+"@ladjs/graceful@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@ladjs/graceful/-/graceful-1.1.5.tgz#22b341e18e8c6fd5d9a8db160269eab503bfaec1"
+  integrity sha512-JrDq4oVdBtBAvmKH6+bx/MqzibyUeT6t/cPCzwFsrx4Z0MeIEsM7Bz+m4QOrWsBmXSxfU8GvrqNGsfgVfT15JA==
   dependencies:
-    debug "^4.2.0"
+    debug "^4.3.3"
 
 "@ladjs/i18n@^7.0.1":
   version "7.2.3"
@@ -2710,6 +2710,13 @@ debug@^3.1.0, debug@^3.2.6, debug@^3.2.7:
   integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
   dependencies:
     ms "^2.1.1"
+
+debug@^4.3.3:
+  version "4.3.4"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
+  integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
+  dependencies:
+    ms "2.1.2"
 
 decamelize-keys@^1.1.0:
   version "1.1.0"
