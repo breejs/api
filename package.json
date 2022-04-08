@@ -35,7 +35,7 @@
     "ip": "^1.1.5",
     "koa-jwt": "^4.0.1",
     "lodash": "^4.17.20",
-    "markdown-it": "^12.0.4",
+    "markdown-it": "^12.3.2",
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-github-headings": "^2.0.0",
     "markdown-it-highlightjs": "^3.4.0",
