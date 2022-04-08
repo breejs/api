@@ -28,7 +28,7 @@
     "@ladjs/graceful": "^1.0.5",
     "@ladjs/shared-config": "^4.0.0",
     "@slack/web-api": "^6.0.0",
-    "axe": "^8.0.0",
+    "axe": "^8.1.2",
     "crypto-random-string": "^3.3.1",
     "del": "^6.0.0",
     "humanize-string": "^2.1.0",
