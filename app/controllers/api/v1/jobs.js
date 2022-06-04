@@ -9,9 +9,9 @@ async function get(ctx) {
   body = body.map((j) => {
     j.status = 'done';
 
-    if (bree.workers[j.name]) j.status = 'active';
-    else if (bree.timeouts[j.name]) j.status = 'delayed';
-    else if (bree.intervals[j.name]) j.status = 'waiting';
+    if (bree.workers.has(j.name)) j.status = 'active';
+    else if (bree.timeouts.has(j.name)) j.status = 'delayed';
+    else if (bree.intervals.has(j.name)) j.status = 'waiting';
 
     return j;
   });

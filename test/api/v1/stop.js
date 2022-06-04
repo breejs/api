@@ -41,26 +41,26 @@ test.before(async (t) => {
 test.serial('successfully stop named job', async (t) => {
   const { api, bree } = t.context;
 
-  t.truthy(bree.workers.active);
+  t.truthy(bree.workers.has('active'));
 
   const res = await api.post(`${rootUrl}/active`).send({});
 
   t.is(res.status, 200);
 
-  t.falsy(bree.workers.active);
+  t.falsy(bree.workers.has('active'));
 });
 
 test.serial('successfully stop all jobs', async (t) => {
   const { bree, api } = t.context;
 
-  t.not(Object.values(bree.timeouts).length, 0);
-  t.not(Object.values(bree.intervals).length, 0);
+  t.not(bree.timeouts.size, 0);
+  t.not(bree.intervals.size, 0);
 
   const res = await api.post(rootUrl).send({});
 
   t.is(res.status, 200);
 
-  t.is(Object.values(bree.workers).length, 0);
-  t.is(Object.values(bree.timeouts).length, 0);
-  t.is(Object.values(bree.intervals).length, 0);
+  t.is(bree.workers.size, 0);
+  t.is(bree.timeouts.size, 0);
+  t.is(bree.intervals.size, 0);
 });

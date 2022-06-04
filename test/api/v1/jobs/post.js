@@ -35,7 +35,7 @@ test('successfully add one job', async (t) => {
 
   t.truthy(bree.config.jobs.find((j) => j.name === 'successfulOne'));
   // ensure job hasn't been started
-  t.falsy(bree.workers.successfulOne);
+  t.falsy(bree.workers.has('successfulOne'));
 });
 
 test('successfully add multiple jobs', async (t) => {
@@ -66,9 +66,9 @@ test('successfully add multiple jobs', async (t) => {
   t.truthy(bree.config.jobs.find((j) => j.name === 'array2'));
   t.truthy(bree.config.jobs.find((j) => j.name === 'array3'));
   // ensure job hasn't been started
-  t.falsy(bree.workers.array1);
-  t.falsy(bree.workers.array2);
-  t.falsy(bree.workers.array3);
+  t.falsy(bree.workers.has('array1'));
+  t.falsy(bree.workers.has('array2'));
+  t.falsy(bree.workers.has('array3'));
 });
 
 test('fails if data is bad', async (t) => {
@@ -100,7 +100,7 @@ test('successfully auto start job', async (t) => {
 
   t.truthy(bree.config.jobs.find((j) => j.name === 'auto-start'));
   // ensure job hasn't been started
-  t.truthy(bree.workers['auto-start']);
+  t.truthy(bree.workers.has('auto-start'));
 });
 
 test('successfully duplicate job', async (t) => {
@@ -121,5 +121,5 @@ test('successfully duplicate job', async (t) => {
 
   t.truthy(bree.config.jobs.find((j) => j.name === 'orig(2)'));
 
-  t.falsy(bree.workers['orig(2)']);
+  t.falsy(bree.workers.has('org(2)'));
 });

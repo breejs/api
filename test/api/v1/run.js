@@ -43,8 +43,8 @@ test('successfully run named job', async (t) => {
 
   await delay(200);
 
-  t.falsy(bree.workers.active);
-  t.falsy(bree.intervals.waiting);
-  t.falsy(bree.timeouts.delayed);
-  t.truthy(bree.workers.delayed);
+  t.falsy(bree.workers.has('active'));
+  t.falsy(bree.intervals.has('waiting'));
+  t.falsy(bree.timeouts.has('delayed'));
+  t.truthy(bree.workers.has('delayed'));
 });
