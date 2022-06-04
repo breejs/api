@@ -43,9 +43,9 @@ test.serial('successfully start all jobs', async (t) => {
 
   await delay(200);
 
-  t.truthy(bree.workers.active);
-  t.truthy(bree.timeouts.delayed);
-  t.truthy(bree.intervals.waiting);
+  t.truthy(bree.workers.has('active'));
+  t.truthy(bree.timeouts.has('delayed'));
+  t.truthy(bree.intervals.has('waiting'));
 });
 
 test.serial('successfully start named job', async (t) => {
@@ -73,6 +73,6 @@ test.serial('successfully start named job', async (t) => {
 
   await delay(200);
 
-  t.falsy(bree.workers.immediate);
-  t.truthy(bree.timeouts.timeout);
+  t.falsy(bree.workers.has('immediate'));
+  t.truthy(bree.timeouts.has('timeout'));
 });
