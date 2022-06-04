@@ -1,6 +1,7 @@
+const path = require('path');
+const { once } = require('events');
 const test = require('ava');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 const delay = require('delay');
 
 const config = require('../../../../config');
@@ -36,10 +37,11 @@ test.before(async (t) => {
   t.context.bree.start();
 });
 
-test('successfully', async (t) => {
+test.serial('successfully', async (t) => {
   const { api, bree } = t.context;
 
-  await delay(300);
+  // wait until the first worker finishes so our expect is correctly timed
+  await once(bree, 'worker deleted');
 
   const res = await api.get(rootUrl);
 
@@ -68,7 +70,7 @@ test('successfully filter by name', async (t) => {
   );
 });
 
-test('successfully filter by status', async (t) => {
+test.serial('successfully filter by status', async (t) => {
   const { api, bree } = t.context;
 
   await delay(200);
