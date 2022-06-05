@@ -1,6 +1,6 @@
+const path = require('path');
 const test = require('ava');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 
 const config = require('../../../../config');
 

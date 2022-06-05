@@ -9,7 +9,7 @@ module.exports = {
   ...sharedConfig('API'),
   routes: routes.api,
   logger,
-  hookBeforeRoutes: (app) => {
+  hookBeforeRoutes(app) {
     app.use(jwt(config.jwt));
   }
 };

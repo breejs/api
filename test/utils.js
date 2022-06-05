@@ -1,8 +1,8 @@
 // Necessary utils for testing
 // Librarires required for testing
+const path = require('path');
 const request = require('supertest');
 const getPort = require('get-port');
-const path = require('path');
 
 //
 // setup utilities

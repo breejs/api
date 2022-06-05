@@ -9,8 +9,8 @@ const { lastRun, watch, series, parallel, src, dest } = require('gulp');
 
 const config = require('./config');
 
-const PROD = config.env === 'production';
-const DEV = config.env === 'development';
+// const PROD = config.env === 'production';
+// const DEV = config.env === 'development';
 const TEST = config.env === 'test';
 
 function xo() {
@@ -40,7 +40,7 @@ const build = series(clean, parallel(...(TEST ? [] : [xo, remark])));
 module.exports = {
   clean,
   build,
-  watch: () => {
+  watch() {
     lr.listen(config.livereload);
     watch(['**/*.js'], xo);
   },
