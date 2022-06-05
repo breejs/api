@@ -27,6 +27,6 @@ test('api does exist on bree instance', (t) => {
   t.is(typeof bree.api, 'object');
 
   // options is set correctly by default
-  t.is(bree.api.config.port, 4000);
+  t.is(bree.api.config.port, 62_893);
   t.is(bree.api.config.jwt.secret, 'secret');
 });
