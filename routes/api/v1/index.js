@@ -26,4 +26,7 @@ router.post('/stop/:jobName', api.v1.control.stop);
 
 router.post('/run/:jobName', api.v1.control.run);
 
+router.post('/restart', api.v1.control.restart);
+router.post('/restart/:jobName', api.v1.control.restart);
+
 module.exports = router;

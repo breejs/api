@@ -33,4 +33,13 @@ async function run(ctx) {
   ctx.body = {};
 }
 
-module.exports = { checkJobName, start, stop, run };
+async function restart(ctx) {
+  const { jobName } = ctx.params;
+
+  await ctx.bree.stop(jobName);
+  ctx.bree.start(jobName);
+
+  ctx.body = {};
+}
+
+module.exports = { checkJobName, start, stop, run, restart };
