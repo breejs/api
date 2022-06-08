@@ -1,5 +1,4 @@
 const API = require('@ladjs/api');
-const jwt = require('koa-jwt');
 
 const api = require('./api');
 const apiConfig = require('./config/api');
@@ -10,17 +9,11 @@ function plugin(opts, Bree) {
   opts = {
     port: config.port,
     jwt: config.jwt,
+    sse: config.sse,
     ...opts
   };
 
-  const api = new API({
-    ...apiConfig,
-    port: opts.port,
-    jwt: opts.jwt,
-    hookBeforeRoutes(app) {
-      app.use(jwt(opts.jwt));
-    }
-  });
+  const api = new API(apiConfig(opts));
 
   const oldInit = Bree.prototype.init;
 

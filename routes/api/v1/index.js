@@ -29,4 +29,6 @@ router.post('/run/:jobName', api.v1.control.run);
 router.post('/restart', api.v1.control.restart);
 router.post('/restart/:jobName', api.v1.control.restart);
 
+router.get('/sse/:token', api.v1.sse.connect);
+
 module.exports = router;

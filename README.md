@@ -39,10 +39,11 @@ The API will start automatically when the Bree constructor is called.
 
 ## Options
 
-| Option |  Type  | Description                                                                                  |
-|:------:|:------:|----------------------------------------------------------------------------------------------|
-|  port  | Number | The port the API will listen on. Default: `62893`                                            |
-|   jwt  | Object | Configurations for JWT. Only option is `secret` which will be the secret used to verify JWT. |
+| Option   | Type     | Description                                                                                    |
+| :------: | :------: | ---------------------------------------------------------------------------------------------- |
+| port     | Number   | The port the API will listen on. Default: `62893`                                              |
+| jwt      | Object   | Configurations for JWT. Only option is `secret` which will be the secret used to verify JWT.   |
+| sse      | Object   | Configurations for SSE. See [koa-sse][] for list of options.                                   |
 
 ## API
 
@@ -62,3 +63,5 @@ Check out the [API Docs](https://documenter.getpostman.com/view/17142435/TzzDLbN
 [yarn]: https://yarnpkg.com/
 
 [Bree]: https://jobscheduler.net/#/
+
+[koa-sse]: https://github.com/yklykl530/koa-sse

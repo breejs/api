@@ -30,6 +30,12 @@ const config = {
     secret: env.JWT_SECRET
   },
 
+  // sse options
+  sse: {
+    maxClients: 10_000,
+    pingInterval: 60_000
+  },
+
   // store IP address
   // <https://github.com/ladjs/store-ip-address>
   storeIPAddress: {

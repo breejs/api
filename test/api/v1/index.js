@@ -13,6 +13,7 @@ test.before(async (t) => {
 test('fails when no creds are presented', async (t) => {
   const { api } = t.context;
   const res = await api.get('/v1/test');
+
   t.is(res.status, 401);
 });
 
