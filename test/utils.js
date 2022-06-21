@@ -19,6 +19,8 @@ exports.setupApiServer = async (t, config = {}, pluginConfig = {}) => {
 
   const bree = new Bree({ ...baseConfig, ...config });
 
+  await bree.init();
+
   t.context.api = request.agent(bree.api.server);
   t.context.bree = bree;
 };

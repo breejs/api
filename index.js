@@ -17,8 +17,8 @@ function plugin(opts, Bree) {
 
   const oldInit = Bree.prototype.init;
 
-  Bree.prototype.init = function () {
-    oldInit.bind(this)();
+  Bree.prototype.init = async function () {
+    await oldInit.bind(this)();
 
     // assign bree to the context
     api.app.context.bree = this;

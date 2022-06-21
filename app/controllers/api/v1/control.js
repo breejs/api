@@ -12,7 +12,7 @@ async function checkJobName(ctx, next) {
 async function start(ctx) {
   const { jobName } = ctx.params;
 
-  ctx.bree.start(jobName);
+  await ctx.bree.start(jobName);
 
   ctx.body = {};
 }
@@ -28,7 +28,7 @@ async function stop(ctx) {
 async function run(ctx) {
   const { jobName } = ctx.params;
 
-  ctx.bree.run(jobName);
+  await ctx.bree.run(jobName);
 
   ctx.body = {};
 }
@@ -37,7 +37,7 @@ async function restart(ctx) {
   const { jobName } = ctx.params;
 
   await ctx.bree.stop(jobName);
-  ctx.bree.start(jobName);
+  await ctx.bree.start(jobName);
 
   ctx.body = {};
 }

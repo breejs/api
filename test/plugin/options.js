@@ -4,7 +4,7 @@ const Bree = require('bree');
 const { plugin } = require('../..');
 const { baseConfig } = require('../utils');
 
-test('can modify options', (t) => {
+test('can modify options', async (t) => {
   t.not(plugin.$i, true);
 
   Bree.extend(plugin, {
@@ -14,6 +14,7 @@ test('can modify options', (t) => {
   });
 
   const bree = new Bree(baseConfig);
+  await bree.init();
 
   t.is(bree.api.config.port, 3000);
   t.is(bree.api.config.jwt.secret, 'thisisasecret');

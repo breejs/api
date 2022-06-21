@@ -48,7 +48,7 @@
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "ava": "^4.3.0",
-    "bree": "^8.0.0",
+    "bree": "^9.0.0",
     "codecov": "^3.8.1",
     "delay": "^5.0.0",
     "eslint": "^8.17.0",
@@ -107,7 +107,7 @@
     ]
   },
   "peerDependencies": {
-    "bree": "~8.0"
+    "bree": "~9.0"
   },
   "prettier": {
     "singleQuote": true,

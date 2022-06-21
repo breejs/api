@@ -15,10 +15,11 @@ test('api does not exist on bree constructor', (t) => {
   t.is(typeof Bree.api, 'undefined');
 });
 
-test('api does exist on bree instance', (t) => {
+test('api does exist on bree instance', async (t) => {
   const { Bree } = t.context;
 
   const bree = new Bree(baseConfig);
+  await bree.init();
 
   t.log(bree);
   // just to make sure this works correctly
