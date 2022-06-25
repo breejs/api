@@ -54,6 +54,8 @@ test.serial('successfully restart active job', async (t) => {
   const res = await api.post(`${rootUrl}/active`).send({});
 
   t.is(res.status, 200);
+  t.is(res.body.length, 1);
+  t.like(res.body[0], { name: 'active' });
 
   await delay(200);
 

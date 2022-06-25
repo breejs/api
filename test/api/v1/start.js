@@ -70,6 +70,8 @@ test.serial('successfully start named job', async (t) => {
   const res = await api.post(`${rootUrl}/timeout`).send({});
 
   t.is(res.status, 200);
+  t.is(res.body.length, 1);
+  t.like(res.body[0], { name: 'timeout' });
 
   await delay(200);
 

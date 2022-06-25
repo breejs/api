@@ -12,20 +12,10 @@ const rootUrl = '/v1/sse';
 test.before(async (t) => {
   await utils.setupApiServer(t, {
     jobs: [
-      { name: 'done', path: path.join(utils.root, 'basic.js') },
       {
         name: 'delayed',
         path: path.join(utils.root, 'basic.js'),
-        timeout: 100
-      },
-      {
-        name: 'waiting',
-        path: path.join(utils.root, 'basic.js'),
-        interval: 100
-      },
-      {
-        name: 'active',
-        path: path.join(utils.root, 'long.js')
+        interval: 1000
       }
     ]
   });
@@ -48,9 +38,10 @@ const eventsMacro = test.macro({
   async exec(t, event) {
     const es = utils.setupEventSource(t, rootUrl);
 
-    await once(es, event);
+    const [res] = await once(es, event);
 
-    t.pass();
+    t.is(res.type, event);
+    t.is(res.data, 'delayed');
   },
   title(_, event) {
     return `successfully listen to "${event}" messages`;

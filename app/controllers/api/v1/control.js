@@ -9,37 +9,53 @@ async function checkJobName(ctx, next) {
   return next();
 }
 
-async function start(ctx) {
+async function addJobNameToQuery(ctx, next) {
+  const { jobName } = ctx.params;
+
+  ctx.query = { name: jobName };
+
+  return next();
+}
+
+async function start(ctx, next) {
   const { jobName } = ctx.params;
 
   await ctx.bree.start(jobName);
 
   ctx.body = {};
+
+  return next();
 }
 
-async function stop(ctx) {
+async function stop(ctx, next) {
   const { jobName } = ctx.params;
 
   await ctx.bree.stop(jobName);
 
   ctx.body = {};
+
+  return next();
 }
 
-async function run(ctx) {
+async function run(ctx, next) {
   const { jobName } = ctx.params;
 
   await ctx.bree.run(jobName);
 
   ctx.body = {};
+
+  return next();
 }
 
-async function restart(ctx) {
+async function restart(ctx, next) {
   const { jobName } = ctx.params;
 
   await ctx.bree.stop(jobName);
   await ctx.bree.start(jobName);
 
   ctx.body = {};
+
+  return next();
 }
 
-module.exports = { checkJobName, start, stop, run, restart };
+module.exports = { checkJobName, addJobNameToQuery, start, stop, run, restart };
