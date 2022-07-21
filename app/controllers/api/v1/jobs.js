@@ -56,15 +56,13 @@ async function add(ctx) {
   let jobs;
 
   try {
-    jobs = bree.add(body.jobs);
+    jobs = await bree.add(body.jobs);
   } catch (err) {
     return ctx.throw(Boom.badData(err));
   }
 
   if (body.start) {
-    for (const job of jobs) {
-      bree.start(job.name);
-    }
+    await Promise.all(jobs.map((j) => bree.start(j.name)));
   }
 
   ctx.body = { jobs };

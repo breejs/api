@@ -15,10 +15,11 @@ test('api does not exist on bree constructor', (t) => {
   t.is(typeof Bree.api, 'undefined');
 });
 
-test('api does exist on bree instance', (t) => {
+test('api does exist on bree instance', async (t) => {
   const { Bree } = t.context;
 
   const bree = new Bree(baseConfig);
+  await bree.init();
 
   t.log(bree);
   // just to make sure this works correctly
@@ -27,6 +28,6 @@ test('api does exist on bree instance', (t) => {
   t.is(typeof bree.api, 'object');
 
   // options is set correctly by default
-  t.is(bree.api.config.port, 4000);
+  t.is(bree.api.config.port, 62_893);
   t.is(bree.api.config.jwt.secret, 'secret');
 });

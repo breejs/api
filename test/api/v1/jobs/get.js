@@ -34,7 +34,7 @@ test.before(async (t) => {
 
   t.context.api = t.context.api.auth(t.context.token, { type: 'bearer' });
 
-  t.context.bree.start();
+  await t.context.bree.start();
 });
 
 test.serial('successfully', async (t) => {

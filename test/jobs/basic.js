@@ -1,3 +1,4 @@
+const process = require('process');
 const { parentPort } = require('worker_threads');
 
 setTimeout(() => {

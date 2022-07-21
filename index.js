@@ -1,30 +1,24 @@
 const API = require('@ladjs/api');
+
 const api = require('./api');
 const apiConfig = require('./config/api');
 
 const config = require('./config');
-const jwt = require('koa-jwt');
 
 function plugin(opts, Bree) {
   opts = {
     port: config.port,
     jwt: config.jwt,
+    sse: config.sse,
     ...opts
   };
 
-  const api = new API({
-    ...apiConfig,
-    port: opts.port,
-    jwt: opts.jwt,
-    hookBeforeRoutes: (app) => {
-      app.use(jwt(opts.jwt));
-    }
-  });
+  const api = new API(apiConfig(opts));
 
   const oldInit = Bree.prototype.init;
 
-  Bree.prototype.init = function () {
-    oldInit.bind(this)();
+  Bree.prototype.init = async function () {
+    await oldInit.bind(this)();
 
     // assign bree to the context
     api.app.context.bree = this;

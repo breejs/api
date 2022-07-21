@@ -1,6 +1,6 @@
+const path = require('path');
 const test = require('ava');
 const jwt = require('jsonwebtoken');
-const path = require('path');
 const delay = require('delay');
 
 const config = require('../../../config');
@@ -33,7 +33,7 @@ test.before(async (t) => {
 
   t.context.api = t.context.api.auth(t.context.token, { type: 'bearer' });
 
-  t.context.bree.start();
+  await t.context.bree.start();
 
   await delay(200);
 });
@@ -46,6 +46,8 @@ test.serial('successfully stop named job', async (t) => {
   const res = await api.post(`${rootUrl}/active`).send({});
 
   t.is(res.status, 200);
+  t.is(res.body.length, 1);
+  t.like(res.body[0], { name: 'active' });
 
   t.falsy(bree.workers.has('active'));
 });

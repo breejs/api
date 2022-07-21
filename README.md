@@ -6,7 +6,7 @@
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![made with lad](https://img.shields.io/badge/made_with-lad-95CC28.svg)](https://lad.js.org)
 
-> An API for Bree.
+> An API for [Bree][].
 
 ## Table of Contents
 
@@ -39,10 +39,11 @@ The API will start automatically when the Bree constructor is called.
 
 ## Options
 
-| Option |  Type  | Description                                                                                  |
-|:------:|:------:|----------------------------------------------------------------------------------------------|
-|  port  | Number | The port the API will listen on.                                                             |
-|   jwt  | Object | Configurations for JWT. Only option is `secret` which will be the secret used to verify JWT. |
+| Option   | Type     | Description                                                                                    |
+| :------: | :------: | ---------------------------------------------------------------------------------------------- |
+| port     | Number   | The port the API will listen on. Default: `62893`                                              |
+| jwt      | Object   | Configurations for JWT. Only option is `secret` which will be the secret used to verify JWT.   |
+| sse      | Object   | Configurations for SSE. See [koa-sse][] for list of options.                                   |
 
 ## API
 
@@ -56,3 +57,11 @@ Check out the [API Docs](https://documenter.getpostman.com/view/17142435/TzzDLbN
 [MIT](LICENSE) © [Nick Baugh](http://niftylettuce.com/)
 
 ##
+
+[npm]: https://www.npmjs.com/
+
+[yarn]: https://yarnpkg.com/
+
+[Bree]: https://jobscheduler.net/#/
+
+[koa-sse]: https://github.com/yklykl530/koa-sse

@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-unassigned-import
 require('./config/env');
 
+const process = require('process');
+
 const API = require('@ladjs/api');
 const Graceful = require('@ladjs/graceful');
 const ip = require('ip');
@@ -8,7 +10,7 @@ const ip = require('ip');
 const logger = require('./helpers/logger');
 const apiConfig = require('./config/api');
 
-const api = new API(apiConfig);
+const api = new API(apiConfig());
 
 if (!module.parent) {
   const graceful = new Graceful({
@@ -23,7 +25,7 @@ if (!module.parent) {
       if (process.send) process.send('ready');
       const { port } = api.server.address();
       logger.info(
-        `Lad API server listening on ${port} (LAN: ${ip.address()}:${port})`
+        `Bree API server listening on ${port} (LAN: ${ip.address()}:${port})`
       );
     } catch (error) {
       logger.error(error);

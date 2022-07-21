@@ -20,7 +20,7 @@ const config = {
   appName: env.APP_NAME,
   appColor: env.APP_COLOR,
   twitter: env.TWITTER,
-  port: 4000,
+  port: 62_893,
 
   // build directory
   buildBase: 'build',
@@ -28,6 +28,12 @@ const config = {
   // jwt options
   jwt: {
     secret: env.JWT_SECRET
+  },
+
+  // sse options
+  sse: {
+    maxClients: 10_000,
+    pingInterval: 60_000
   },
 
   // store IP address
