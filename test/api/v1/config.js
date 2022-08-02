@@ -21,5 +21,8 @@ test('GET > successfully', async (t) => {
   const res = await api.get(rootUrl);
 
   t.is(res.status, 200);
-  t.like(res.body, _.omit(bree.config, 'logger'));
+  t.like(
+    res.body,
+    _.omit(bree.config, ['logger', 'workerMessageHandler', 'errorHandler'])
+  );
 });
