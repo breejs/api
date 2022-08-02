@@ -1,3 +1,7 @@
+const { conns } = require('../../../../helpers/bree-hooks');
+
+let uuid = 0;
+
 async function connect(ctx) {
   if (ctx.sse) {
     // likely not the best way to do this
@@ -21,6 +25,8 @@ async function connect(ctx) {
       data: isActive(ctx)
     });
 
+    conns.push({ id: uuid, sse: ctx.sse });
+
     // send bree events over sse
     for (const event of ['worker created', 'worker deleted']) {
       ctx.bree.on(event, (name) => {
@@ -28,11 +34,29 @@ async function connect(ctx) {
       });
     }
 
+    ctx.bree.on('worker message', (data) => {
+      ctx.sse.send({ event: 'worker message', data: JSON.stringify(data) });
+    });
+
+    ctx.bree.on('worker error', (data) => {
+      ctx.sse.send({ event: 'worker error', data: JSON.stringify(data) });
+    });
+
     ctx.sse.on('close', () => {
       ctx.logger.error('SSE closed');
 
+      // remove from conns array)
+      const idx = conns.findIndex((conn) => conn.id === uuid);
+
+      if (idx > 0) {
+        conns.splice(idx, 1);
+      }
+
       clearInterval(interval);
     });
+
+    // bump uuid
+    uuid++;
   }
 }
 
