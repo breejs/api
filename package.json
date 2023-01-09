@@ -33,7 +33,7 @@
     "del": "^6.0.0",
     "humanize-string": "^3.0.0",
     "ip": "^1.1.5",
-    "koa-jwt": "^4.0.1",
+    "koa-jwt": "^4.0.4",
     "koa-sse-stream": "^0.2.0",
     "lodash": "^4.17.20",
     "markdown-it": "^13.0.1",
