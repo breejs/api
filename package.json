@@ -27,7 +27,7 @@
     "@ladjs/env": "^3.0.0",
     "@ladjs/graceful": "^2.0.1",
     "@ladjs/shared-config": "^7.0.3",
-    "@slack/web-api": "^6.0.0",
+    "@slack/web-api": "^6.9.1",
     "axe": "^8.0.0",
     "crypto-random-string": "^5.0.0",
     "del": "^6.0.0",
