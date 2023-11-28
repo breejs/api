@@ -23,7 +23,7 @@
   "dependencies": {
     "@hapi/boom": "^10.0.0",
     "@koa/router": "^10.0.0",
-    "@ladjs/api": "^9.0.2",
+    "@ladjs/api": "^12.0.3",
     "@ladjs/env": "^3.0.0",
     "@ladjs/graceful": "^2.0.1",
     "@ladjs/shared-config": "^7.0.3",
