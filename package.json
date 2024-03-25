@@ -36,7 +36,7 @@
     "koa-jwt": "^4.0.1",
     "koa-sse-stream": "^0.2.0",
     "lodash": "^4.17.20",
-    "markdown-it": "^13.0.1",
+    "markdown-it": "^13.0.2",
     "markdown-it-emoji": "^2.0.0",
     "markdown-it-github-headings": "^2.0.0",
     "markdown-it-highlightjs": "^4.0.1",
