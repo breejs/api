@@ -30,7 +30,7 @@
     "@slack/web-api": "^6.0.0",
     "axe": "^8.0.0",
     "crypto-random-string": "^5.0.0",
-    "del": "^6.0.0",
+    "del": "^8.0.0",
     "humanize-string": "^3.0.0",
     "ip": "^1.1.5",
     "koa-jwt": "^4.0.1",
